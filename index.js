@@ -60,14 +60,32 @@ var questions = [
     answer: 'The body section',
   },
   {
-    title:
-      'What is the correct syntax for referring to an external script called "xxx.js"?',
+    title: 'How do you create a function in JavaScript?',
     slections: [
-      '<script href="xxx.js">',
-      '<script src="xxx.js">',
-      '<script name="xxx.js">',
+      'function myFunction()',
+      'function:myFunction()',
+      'function = myFunction()',
     ],
-    answer: '<script src="xxx.js">',
+    answer: 'function myFunction()',
+  },
+  {
+    title: 'How do you call a function named "myFunction?',
+    slections: [
+      'call myFunction()',
+      'call function myFunction()',
+      'myFunction()',
+    ],
+    answer: 'myFunction()',
+  },
+  {
+    title: 'How do you round the number 7.25, to the nearest integer?',
+    slections: [
+      'Math.round(7.25)',
+      'Math.rnd(7.25)',
+      'round(7.25)',
+      'rnd(7.25)',
+    ],
+    answer: 'Math.round(7.25)',
   },
 ];
 // track question
@@ -104,7 +122,7 @@ function renderQuestion(i) {
   questions[i].slections.forEach((selection) => {
     var li = document.createElement('li');
     li.classList.add('list-group-item');
-    li.innerHTML = `<button class="btn btn-primary select__btn" data-id="0">${selection}</button>`;
+    li.innerHTML = `<button class="btn btn-primary select__btn" data-id=${i}>${selection}</button>`;
     question__selections.append(li);
   });
 
@@ -147,7 +165,7 @@ function renderFinalPage() {
   clock.style.display = 'none';
 
   // clear all content inside of the question container
-  question__container.innerHTML = `<form class="final__result p-5"><h2>Your Final Score is ${score} </h2><div class="input-group flex-nowrap"><div class="input-group-prepend"><label for="initial" class="input-group-text" id="addon-wrapping">Enter Initial</label></div><input type="text" class="form-control" id="initial" placeholder="Your Initial" aria-label="You Initial" required></div><button class="btn btn-success btn-lg return__btn mt-3">Go Back</button></form>`;
+  question__container.innerHTML = `<form class="final__result p-5"><h2>Your Final Score is ${score} </h2><div class="input-group flex-nowrap"><div class="input-group-prepend"><label for="initial" class="input-group-text" id="addon-wrapping">Enter Initial</label></div><input type="text" class="form-control" id="initial" placeholder="Your Initial" aria-label="You Initial" required></div><button class="btn btn-success btn-lg return__btn mt-3">Submit</button></form>`;
 
   var final__result = document.querySelector('.final__result');
 
