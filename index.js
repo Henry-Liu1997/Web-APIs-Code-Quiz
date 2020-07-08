@@ -165,7 +165,7 @@ function renderFinalPage() {
   clock.style.display = 'none';
 
   // clear all content inside of the question container
-  question__container.innerHTML = `<form class="final__result p-5"><h2>Your Final Score is ${score} </h2><div class="input-group flex-nowrap"><div class="input-group-prepend"><label for="initial" class="input-group-text" id="addon-wrapping">Enter Initial</label></div><input type="text" class="form-control" id="initial" placeholder="Your Initial" aria-label="You Initial" required></div><button class="btn btn-success btn-lg return__btn mt-3">Submit</button></form>`;
+  question__container.innerHTML = `<form class="final__result"><h1>All done!</h1><h2>Your Final Score is ${score} </h2><div class="input-group flex-nowrap"><div class="input-group-prepend"><label for="initial" class="input-group-text" id="addon-wrapping">Enter Initial</label></div><input type="text" class="form-control" id="initial" placeholder="Your Initial" aria-label="You Initial" required></div><button class="btn btn-success btn-lg return__btn mt-3">Submit</button></form>`;
 
   var final__result = document.querySelector('.final__result');
 
