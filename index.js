@@ -35,14 +35,39 @@ var score = 0;
 //init questions
 var questions = [
   {
-    title: 'Do you like pizza',
-    slections: ['yes I do', 'no i do not'],
-    answer: 'yes I do',
+    title: 'Inside which HTML element do we put the JavaScript',
+    slections: ['js', 'javascript', 'scripting', 'script'],
+    answer: 'script',
   },
   {
-    title: 'Do you like apple',
-    slections: ['yes', 'no '],
-    answer: 'yes',
+    title:
+      'What is the correct JavaScript syntax to change the content of the HTML element <p id="demo">This is a demonstration.</p>',
+    slections: [
+      'document.getElementByName("p").innerHTML = "Hello World!"',
+      'document.getElementById("demo").innerHTML = "Hello World!"',
+      '#demo.innerHTML = "Hello World"',
+      'document.getElement("p").innerHTML = "Hello World!"',
+    ],
+    answer: 'document.getElementById("demo").innerHTML = "Hello World!"',
+  },
+  {
+    title: 'Where is the correct place to insert a JavaScript?',
+    slections: [
+      'Both the head section and the body section are correct',
+      'The head section',
+      'The body section',
+    ],
+    answer: 'The body section',
+  },
+  {
+    title:
+      'What is the correct syntax for referring to an external script called "xxx.js"?',
+    slections: [
+      '<script href="xxx.js">',
+      '<script src="xxx.js">',
+      '<script name="xxx.js">',
+    ],
+    answer: '<script src="xxx.js">',
   },
 ];
 // track question
@@ -57,6 +82,9 @@ start_btn.addEventListener('click', () => {
     time--;
     if (time < 0) {
       clearInterval(game);
+
+      // end the game
+      renderFinalPage();
     }
   }, 1000);
 
@@ -76,7 +104,7 @@ function renderQuestion(i) {
   questions[i].slections.forEach((selection) => {
     var li = document.createElement('li');
     li.classList.add('list-group-item');
-    li.innerHTML = `<button class="btn btn-primary text-capitalize select__btn" data-id="0">${selection}</button>`;
+    li.innerHTML = `<button class="btn btn-primary select__btn" data-id="0">${selection}</button>`;
     question__selections.append(li);
   });
 
@@ -106,7 +134,7 @@ question__selections.addEventListener('click', (e) => {
   }, 1000);
 
   //check if the game is over
-  if (index < questions.length && time >= 0) {
+  if (index < questions.length) {
     renderQuestion(index);
   } else {
     renderFinalPage();
