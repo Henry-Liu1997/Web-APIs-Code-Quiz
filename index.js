@@ -115,6 +115,9 @@ question__selections.addEventListener('click', (e) => {
 
 // render the final page
 function renderFinalPage() {
+  // clear the clock
+  clock.style.display = 'none';
+
   // clear all content inside of the question container
   question__container.innerHTML = `<form class="final__result p-5"><h2>Your Final Score is ${score} </h2><div class="input-group flex-nowrap"><div class="input-group-prepend"><label for="initial" class="input-group-text" id="addon-wrapping">Enter Initial</label></div><input type="text" class="form-control" id="initial" placeholder="Your Initial" aria-label="You Initial" required></div><button class="btn btn-success btn-lg return__btn mt-3">Go Back</button></form>`;
 
